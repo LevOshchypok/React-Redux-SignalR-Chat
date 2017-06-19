@@ -17,3 +17,24 @@ export const recieveMessage = (text)=>{
     }
 }
 
+export const getCurrendDialog = (id)=>{
+    return{
+        type:'GET_CURRENT_DIAG_ID',
+        id
+    }
+}
+
+export const addDialogue = (name)=>{
+    return{
+        type:'ADD_DIALOGUE',
+        id:counterMessages(2),
+        name,
+    }
+}
+
+export const removeDialogue = (name)=>{
+    return{
+        type:'REMOVE_DIALOGUE',
+        name
+    }
+}

@@ -1,57 +1,45 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import MessageBox from './MessageBox';
+import DiagItem from './DiagItem';
+import {addDialogue} from '../actions/action';
+import {getCurrendDialog} from '../actions/action';
 
 
-class DiagItem extends React.Component{
-    constructor(props){
-        super(props)
-        
-        this.getMess = this.getMess.bind(this);
-    }
-    getMess(){
-        this.props.getMess(this.props.diagID)
-    }
 
-    render(){
-        return(
-            <button onClick={this.getMess}>{this.props.diagID}</button>
-        );
-    }
-}
 
 class DialogueBox extends React.Component{
     constructor(props){
         super(props);
 
-        this.state={dialogId:0,
-            messages:[{id:5, text:"Hello I am Lev"}]};
+        this.state={ dialogues:this.props.dialogues,
+                     messages:[]}
 
-        this.getMessages = this.getMessages.bind(this);
+        this.addChanel = this.addChanel.bind(this);
+
     }
 
-
-
-    getMessages(id){
+    componentWillReceiveProps(nextProps){
+        if(nextProps!=this.props)
+        {
+            this.setState({messages:nextProps.dialogues.filter(x=>x.id === nextProps.currentDiagId)[0].messages});   
+        }
+    }
+    addChanel(){
+        this.props.addDiag("newOne");
+    }
         
-        this.setState({dialogId:id,
-            messages:this.props.dialogues.filter(x=>x.id === id)[0].messages});
-        //this.setState({dialogId:id});
-        console.log("id is " + id);
-        console.log("this.state.Id  " + this.state.dialogId);
-          // console.log(this.props.dialogues.filter(x=>x.id === id)[0].messages);
-    }
-
     render(){
         return(
             <div>
                 <ul>
-                    {this.props.dialogues.map(dialog =>
-                    <DiagItem getMess={this.getMessages} diagID={dialog.id}  />
+                    {this.state.dialogues.map(dialog =>
+                    <DiagItem  diagID={dialog.id}  />
                     )}
                 </ul>
+                <button onClick={this.addChanel}>Add Dialogue</button>
                 <div>
-                    <MessageBox messages={this.state.messages} DialogID={this.state.dialogId}/>
+                    <MessageBox messages={this.state.messages} DialogID={this.props.currentDiagId}/>
                 </div>
             </div>
         );
@@ -62,10 +50,17 @@ class DialogueBox extends React.Component{
 
 function mapStateToProps(state){
     return{
+        currentDiagId: state.currentDiagId,
         dialogues: state.dialogues
     };
 }
 
-export default connect(mapStateToProps)(DialogueBox)
+const mapDispatchToProps=(dispatch)=>({addDiag: (name)=>{
+    dispatch(addDialogue(name));
+},
+})
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(DialogueBox)
 
 
