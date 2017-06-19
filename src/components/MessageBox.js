@@ -13,7 +13,7 @@ import AddMess from '../containers/AddMess'
                 {...message}/>)}
             </div>
             <h3> MessageBox diag id is {this.props.DialogID} </h3>
-            <AddMess DialogID={this.props.DialogID}/>
+            <AddMess UpadatesTrigger={this.props.UpadatesTrigger} DialogID={this.props.DialogID}/>
             </div>
         )
     }

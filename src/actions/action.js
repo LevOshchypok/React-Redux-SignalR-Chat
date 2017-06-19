@@ -4,7 +4,7 @@ import counterMessages from '../helpers/counters'
 export const sendMessage = (text,diagId)=>{
     return {
         type:'SEND_MESSAGE',
-        id:counterMessages(2),
+        id:counterMessages(),
         dialogID:diagId,
         text
     }
@@ -27,7 +27,7 @@ export const getCurrendDialog = (id)=>{
 export const addDialogue = (name)=>{
     return{
         type:'ADD_DIALOGUE',
-        id:counterMessages(2),
+        id:counterMessages(),
         name,
     }
 }

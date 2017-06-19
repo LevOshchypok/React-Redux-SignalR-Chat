@@ -10,6 +10,8 @@ const reducer = (state={}, action)=>{
         var UpdatedState = Object.assign({}, state);
         console.log("Upd staet" );
         console.log(UpdatedState);
+        console.log('dialog id');
+        console.log(action.dialogID);
         UpdatedState.dialogues.filter(x=>x.id == action.dialogID)[0].messages.push({id:action.id, text:action.text});
         return UpdatedState;
 
@@ -23,6 +25,7 @@ const reducer = (state={}, action)=>{
         return Object.assign({}, state, state.currentDiagId=action.id);
 
         case 'ADD_DIALOGUE':
+        console.log("I am inside the reducer of adding dialogue");
         return Object.assign({},state, state.dialogues.push({id:action.id, name:action.name, messages:[]}))
 
         default:

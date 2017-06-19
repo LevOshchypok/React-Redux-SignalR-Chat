@@ -13,20 +13,32 @@ class DialogueBox extends React.Component{
         super(props);
 
         this.state={ dialogues:this.props.dialogues,
-                     messages:[]}
+                     dialogId:this.props.currentDiagId,
+                     messages:[],
+                     updated:true
+                    }
 
         this.addChanel = this.addChanel.bind(this);
+        this.UpadatesTrigger = this.UpadatesTrigger.bind(this);
+    }
 
+    UpadatesTrigger(){
+        this.setState({updated:!this.state.updated})
     }
 
     componentWillReceiveProps(nextProps){
-        if(nextProps!=this.props)
+        console.log("I am in componentWillReceiveProps before if");
+        if(nextProps != this.props)
         {
-            this.setState({messages:nextProps.dialogues.filter(x=>x.id === nextProps.currentDiagId)[0].messages});   
+            console.log("I am in componentWillReceiveProps after if");
+            this.setState({dialogues:nextProps.dialogues,
+                messages:nextProps.dialogues.filter(x=>x.id === nextProps.currentDiagId)[0].messages});   
         }
     }
     addChanel(){
+        console.log("I am here");
         this.props.addDiag("newOne");
+        this.setState({dialogues:this.props.dialogues});
     }
         
     render(){
@@ -34,6 +46,7 @@ class DialogueBox extends React.Component{
             <div className="wraper">
                 <div id="content">
                     <div id="dialogue-part">        
+                        <p>{this.props.dialogues.length}</p>
                     <div id="dialogue-part-list">
                         {this.state.dialogues.map(dialog =>
                         <DiagItem  diagID={dialog.id}  />
@@ -43,7 +56,7 @@ class DialogueBox extends React.Component{
                     <div>
                     </div>
                 </div>
-                    <MessageBox messages={this.state.messages} DialogID={this.props.currentDiagId}/>
+                    <MessageBox UpadatesTrigger={this.UpadatesTrigger} messages={this.state.messages} DialogID={this.props.currentDiagId}/>
                 </div>
             </div>
         );

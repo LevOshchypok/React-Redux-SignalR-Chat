@@ -11,16 +11,21 @@ import {fromJS} from 'immutable';
 
 
 
-const initialStore ={
-     currentDiagId:1,
-   dialogues:
-    [
-        {id:1,name:"one", messages:[ {id:1, text:"Hello AAAAAAAAAAAAAAAAA I am Lev"}  ]},
-        {id:2,name:"two", messages:[  {id:2, text:"The second message"}]}
-    ]
-    }
+// const initialStore ={
+//      currentDiagId:1,
+//    dialogues:
+//     [
+//         {id:1,name:"one", messages:[ {id:1, text:"Hello AAAAAAAAAAAAAAAAA I am Lev"}  ]},
+//         {id:2,name:"two", messages:[  {id:2, text:"The second message"}]}
+//     ]
+//     }
     
 
+const initialStore ={
+    currentDiagId:0,
+    dialogues:[]
+    }
+    
 export let store = createStore(reducer, initialStore);
 
 ReactDOM.render(
