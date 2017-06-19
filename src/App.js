@@ -4,6 +4,7 @@ import './App.css';
 import MessageBox from './components/MessageBox';
 import AddMess from './containers/AddMess';
 import DialogueBox from './components/DialogueBox';
+import './css/Styles.css'
 
 class App extends Component {
   render() {

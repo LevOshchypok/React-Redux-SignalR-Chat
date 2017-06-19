@@ -1,0 +1,60 @@
+
+.wraper{
+      position: relative;
+    left: 50%;
+    width: 800px;
+    transform: translate(-50%, 0);
+    background-color:cornsilk;
+    margin:30px;
+    border:2px solid black;
+
+}
+
+#content{
+  display:flex;
+  flex-direction:row; 
+   width: 800px;
+    height: 400px;
+  
+}
+
+#dialogue-part-list{
+  display:flex;
+  flex-direction: column;
+  width:150px;
+  height: 300px;
+  justify-content: flex-start;
+  
+}
+
+#dialogue-part-list-button{
+  margin-top: 10px;
+  background-color: deeppink;
+}
+
+#dialogue-part{
+  display:flex;
+  flex-direction: column;
+  border-right: 2px solid black;
+  justify-content: space-around;
+  width:152px
+  
+}
+
+#MessageBox{
+  display: flex;
+  flex-direction: column;
+
+}
+
+#messageBox-messages{
+  display:flex;
+  width:600px;
+  height:300px;
+
+}
+
+#addmessage{
+  width: 600px;
+  height:80px;
+}

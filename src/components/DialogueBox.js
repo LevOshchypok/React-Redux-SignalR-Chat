@@ -31,14 +31,18 @@ class DialogueBox extends React.Component{
         
     render(){
         return(
-            <div>
-                <ul>
-                    {this.state.dialogues.map(dialog =>
-                    <DiagItem  diagID={dialog.id}  />
-                    )}
-                </ul>
-                <button onClick={this.addChanel}>Add Dialogue</button>
-                <div>
+            <div className="wraper">
+                <div id="content">
+                    <div id="dialogue-part">        
+                    <div id="dialogue-part-list">
+                        {this.state.dialogues.map(dialog =>
+                        <DiagItem  diagID={dialog.id}  />
+                        )}
+                    </div>
+                    <button className="dialogue-part-button" onClick={this.addChanel}>Add Dialogue</button>
+                    <div>
+                    </div>
+                </div>
                     <MessageBox messages={this.state.messages} DialogID={this.props.currentDiagId}/>
                 </div>
             </div>

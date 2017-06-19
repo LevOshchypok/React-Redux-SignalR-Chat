@@ -36,7 +36,7 @@ class AddMess extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id="addmessage">
                 <form onSubmit={e=>{
                     e.preventDefault();
                     this.sendMessage();

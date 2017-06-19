@@ -6,12 +6,12 @@ import AddMess from '../containers/AddMess'
  class MessageBox extends React.Component{
     render(){
         return(
-            <div>
-            <ul>
+            <div id="messageBox">
+            <div id="messageBox-messages">
                 {this.props.messages.map(message=>
                 <Message key={message.id}
                 {...message}/>)}
-            </ul>
+            </div>
             <h3> MessageBox diag id is {this.props.DialogID} </h3>
             <AddMess DialogID={this.props.DialogID}/>
             </div>
