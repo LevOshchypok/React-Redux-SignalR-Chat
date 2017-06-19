@@ -6,8 +6,15 @@ import './index.css';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import messages from './reducers/messages';
+import Immutable from 'immutable';
+import {fromJS} from 'immutable';
 
-const initialStore ={messages:[]
+const initialStore ={
+    dialogues:
+    [
+        {id:1, messages:[ {id:1, text:"Hello AAAAAAAAAAAAAAAAA I am Lev"}  ]},
+        {id:2, messages:[  {id:2, text:"The second message"}]}
+    ]
     }
     
 

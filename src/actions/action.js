@@ -1,9 +1,11 @@
-let counter=3;
+import counterMessages from '../helpers/counters'
 
-export const sendMessage = (text)=>{
+
+export const sendMessage = (text,diagId)=>{
     return {
         type:'SEND_MESSAGE',
-        id:++counter,
+        id:counterMessages(2),
+        dialogID:diagId,
         text
     }
 }

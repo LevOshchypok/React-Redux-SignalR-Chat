@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import MessageBox from './components/MessageBox';
 import AddMess from './containers/AddMess';
+import DialogueBox from './components/DialogueBox';
 
 class App extends Component {
   render() {
@@ -16,8 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <div>
-          <MessageBox/>
-          <AddMess/>
+          <DialogueBox/>
         </div>
       </div>
     );
