@@ -15,15 +15,17 @@ class DialogueBox extends React.Component{
         this.state={ dialogues:this.props.dialogues,
                      dialogId:this.props.currentDiagId,
                      messages:[],
-                     updated:true
-                    }
+                     }
 
         this.addChanel = this.addChanel.bind(this);
         this.UpadatesTrigger = this.UpadatesTrigger.bind(this);
     }
 
     UpadatesTrigger(){
-        this.setState({updated:!this.state.updated})
+        this.setState({
+            dialogues:this.props.dialogues,
+                messages:this.props.dialogues.filter(x=>x.id === this.props.currentDiagId)[0].messages
+        })
     }
 
     componentWillReceiveProps(nextProps){

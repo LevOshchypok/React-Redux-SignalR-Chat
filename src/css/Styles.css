@@ -49,6 +49,7 @@
 
 #messageBox-messages{
   display:flex;
+  flex-direction: column;
   width:600px;
   height:300px;
 
@@ -57,4 +58,9 @@
 #addmessage{
   width: 600px;
   height:80px;
+}
+
+#message{
+  margin: 10px;
+  border: 2px solid black;
 }

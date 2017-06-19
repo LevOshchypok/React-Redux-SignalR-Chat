@@ -32,8 +32,7 @@ class AddMess extends React.Component{
                 <form onSubmit={this.sendMessage}>
                     <input type="text" value={this.state.message} onChange={this.handleMessageChange} ></input>
                     <button type="submit">sent</button>
-                    <h1>This dialog id is - {this.props.DialogID}</h1>
-                </form>
+                 </form>
             </div>
         );
     }
