@@ -12,7 +12,7 @@ import AddMess from '../containers/AddMess'
                 <Message key={message.id}
                 {...message}/>)}
             </div>
-            <AddMess UpadatesTrigger={this.props.UpadatesTrigger} DialogID={this.props.DialogID}/>
+            <AddMess  UpadatesTrigger={this.props.UpadatesTrigger} DialogID={this.props.DialogID}/>
             </div>
         )
     }

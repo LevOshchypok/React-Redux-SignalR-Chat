@@ -23,7 +23,8 @@ import {fromJS} from 'immutable';
 
 const initialStore ={
     currentDiagId:0,
-    dialogues:[]
+    dialogues:
+    [ ]
     }
     
 export let store = createStore(reducer, initialStore);

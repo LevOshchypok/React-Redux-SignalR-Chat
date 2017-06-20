@@ -4,6 +4,7 @@ import MessageBox from './MessageBox';
 import DiagItem from './DiagItem';
 import {addDialogue} from '../actions/action';
 import {getCurrendDialog} from '../actions/action';
+import AddDiagButton from './AddDiagButton'
 
 
 
@@ -37,9 +38,9 @@ class DialogueBox extends React.Component{
                 messages:nextProps.dialogues.filter(x=>x.id === nextProps.currentDiagId)[0].messages});   
         }
     }
-    addChanel(){
-        console.log("I am here");
-        this.props.addDiag("newOne");
+    addChanel(name){
+        console.log("I am in add chanel dailog box");
+        this.props.addDiag(name);
         this.setState({dialogues:this.props.dialogues});
     }
         
@@ -48,13 +49,12 @@ class DialogueBox extends React.Component{
             <div className="wraper">
                 <div id="content">
                     <div id="dialogue-part">        
-                        <p>{this.props.dialogues.length}</p>
                     <div id="dialogue-part-list">
                         {this.state.dialogues.map(dialog =>
-                        <DiagItem  diagID={dialog.id}  />
+                        <DiagItem  diagID={dialog.id} name={dialog.name}  />
                         )}
                     </div>
-                    <button className="dialogue-part-button" onClick={this.addChanel}>Add Dialogue</button>
+                        <AddDiagButton addChanel={this.addChanel}/>
                     <div>
                     </div>
                 </div>

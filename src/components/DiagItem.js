@@ -18,7 +18,7 @@ class DiagItem extends React.Component{
 
     render(){
         return(
-            <button id="#dialogue-part-list-button"  onClick={this.getMess}>{this.props.diagID}</button>
+            <button id="dialogue-part-list-button"  onClick={this.getMess}>{this.props.name}</button>
         );
     }
 }
